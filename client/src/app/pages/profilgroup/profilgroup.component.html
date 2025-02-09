@@ -1,0 +1,54 @@
+<div>
+    <h2>Group: {{ groupName }}</h2>
+  
+    <!-- Champ de saisie pour le nouveau nom du groupe -->
+    <input [(ngModel)]="newGroupName" placeholder="Enter new group name" />
+  
+    <!-- Bouton pour changer le nom du groupe -->
+    <button (click)="updateGroupName()">Change Group Name</button>
+  
+    <h3>Étudiants inscrits:</h3>
+    
+    <!-- Tableau des utilisateurs -->
+    <table class="user-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Hummer</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td [ngClass]="getHummerClass(user.hummer)">
+                {{ user.hummer }}
+            </td>
+            <td [ngClass]="getCallStatusClass(user.call)">
+                {{ user.call ? 'Active' : 'Inactive' }}
+            </td>
+            <td>
+            <!-- Icône poubelle pour supprimer un utilisateur -->
+            <button (click)="removeUserFromGroup(user.id_user)">
+                <i class="fas fa-trash"></i> <!-- Icône FontAwesome -->
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Ajout d'un utilisateur -->
+    <input #userNameInput placeholder="Username" />
+    <button (click)="addUserToGroup(userNameInput.value)">Add User</button>
+
+    <!-- boutons pour la redirection -->
+    <div class="button-container">
+        <button class="custom-button" (click)="goToAdminPage()">Retour</button>
+        <button class="custom-button" (click)="goToManageUserPage()">Gestion utilisateur</button>
+    </div>
+
+</div>
+  

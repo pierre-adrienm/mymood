@@ -1,0 +1,83 @@
+<div class="user-container">
+
+  <h2>{{ userData[0]?.name }}</h2>
+  <p>Email: {{ userData[0]?.email }}</p>
+  <p>Humeur actuelle:
+    <span [ngClass]="{
+      'red-hummer': userData[0]?.hummer >= 1 && userData[0]?.hummer <= 34,
+      'orange-hummer': userData[0]?.hummer >= 35 && userData[0]?.hummer <= 67,
+      'green-hummer': userData[0]?.hummer >= 68 && userData[0]?.hummer <= 100
+    }">
+      {{ userData[0]?.hummer }}
+    </span>
+  </p>
+  
+  <button 
+    class="ream_call"
+    (click)="resetCall()"
+    [ngClass]="{
+      'active-call': lastCall[0]?.call === true,
+      'inactive-call': lastCall[0]?.call === false
+    }"
+    [disabled]="lastCall[0]?.call === false"
+  >
+    Réarmer l'appel
+  </button>
+
+  <div>
+    <p>Dernière modification de l'humeur : 
+      <ng-container *ngIf="lastHummerUpdate.length > 0 && lastHummerUpdate[0]?.Date_Hummer; else noDate">
+        {{ lastHummerUpdate[0].Date_Hummer | date:'dd/MM/yyyy HH:mm:ss' }},
+        humeur: <span [ngClass]="{
+          'red-hummer': lastHummerUpdate[0]?.Hummer >= 1 && lastHummerUpdate[0]?.Hummer <= 34,
+          'orange-hummer': lastHummerUpdate[0]?.Hummer >= 35 && lastHummerUpdate[0]?.Hummer <= 67,
+          'green-hummer': lastHummerUpdate[0]?.Hummer >= 68 && lastHummerUpdate[0]?.Hummer <= 100
+        }">
+          {{ lastHummerUpdate[0]?.Hummer || 'Non disponible' }}
+        </span>
+      </ng-container>
+      <ng-template #noDate>Non disponible</ng-template>
+    </p>
+  </div>  
+
+  <div>
+    <p>Dernier appel : 
+      <ng-container *ngIf="lastCall.length > 0 && lastCall[0]?.Date_alerte; else noCallDate">
+        {{ lastCall[0].Date_alerte | date:'dd/MM/yyyy HH:mm:ss' }}
+      </ng-container>
+      <ng-template #noCallDate>Non disponible</ng-template>
+    </p>
+  </div>
+  
+  
+
+  <h3>Historique des 10 derniers humeurs</h3>
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Humeur</th>
+    </tr>
+    <tr *ngFor="let hummer of last10Hummers">
+      <td>{{ hummer.Date_Hummer | date:'dd/MM/yyyy HH:mm:ss' }}</td>
+      <td [ngClass]="{
+        'red-hummer': hummer.Hummer >= 1 && hummer.Hummer <= 34,
+        'orange-hummer': hummer.Hummer >= 35 && hummer.Hummer <= 67,
+        'green-hummer': hummer.Hummer >= 68 && hummer.Hummer <= 100
+      }">
+        {{ hummer.Hummer }}
+      </td>
+    </tr>
+  </table>
+
+  <h3>Historique des 10 derniers appels</h3>
+  <table>
+    <tr>
+      <th>Date</th>
+    </tr>
+    <tr *ngFor="let call of last10Calls">
+      <td>{{ call.Date_alerte | date:'dd/MM/yyyy HH:mm:ss' }}</td>
+    </tr>
+  </table>
+
+  <button class="return" (click)="goBack()">Retour</button>
+</div>

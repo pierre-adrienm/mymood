@@ -1,0 +1,53 @@
+### register
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "name":"pierre-adrien",
+    "email":"pierre-adrien@gmail.com",
+    "password":"pass2025!",
+    "status":"student"
+}
+
+### login
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email":"pierreS@gmail.com",
+    "password":"pass2025!"
+}
+
+### admin
+GET http://localhost:3000/admin/1
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoyLCJuYW1lIjoicGllcnJlUyIsInN0YXR1cyI6InN1cGVydmlzb3IiLCJpYXQiOjE3MzgxNDQwMDcsImV4cCI6MTczODE0NzYwN30.wKnsNS4AxxTT11XpV1x37YE3x-RGMnsa6A2J_yqtLc8",
+    "user": {
+        "id_user":1,
+        "status":"admin"
+    }
+}
+### supervisor
+GET http://localhost:3000/supervisor/2
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoyLCJuYW1lIjoicGllcnJlUyIsInN0YXR1cyI6InN1cGVydmlzb3IiLCJpYXQiOjE3MzgxNDQwMDcsImV4cCI6MTczODE0NzYwN30.wKnsNS4AxxTT11XpV1x37YE3x-RGMnsa6A2J_yqtLc8",
+    "user": {
+        "id_user":2,
+        "status":"supervisor"
+    }
+}
+###
+GET http://localhost:3000/student/3
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoyLCJuYW1lIjoicGllcnJlUyIsInN0YXR1cyI6InN1cGVydmlzb3IiLCJpYXQiOjE3MzgxNDQwMDcsImV4cCI6MTczODE0NzYwN30.wKnsNS4AxxTT11XpV1x37YE3x-RGMnsa6A2J_yqtLc8",
+    "user": {
+        "id_user":3,
+        "status":"student"
+    }
+}

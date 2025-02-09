@@ -1,0 +1,43 @@
+.supervisor-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+}
+  
+.title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+  
+.groups-container {
+    background-color: #1E1C59;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50vw;
+}
+  
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+  
+li {
+    font-size: 18px;
+    margin: 10px 0;
+}
+  
+.group-button {
+    background-color: white;
+    color: #D91E41;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+  

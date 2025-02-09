@@ -1,0 +1,72 @@
+p{
+    color:#1e1c59;
+    font-style: italic;
+    padding: auto;
+    margin: 3vw;
+}
+
+.mood-container {
+    text-align: center;
+    max-width: 375px;
+    margin: auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+  
+.hummer-card {
+    border: 2px solid red;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    width: 250px;
+    margin: auto;
+}
+  
+.call-button {
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 20px;
+}
+  
+.hummer-slider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+.hummer-label {
+    font-size: 14px;
+    margin: 5px 0;
+}
+  
+.hummer-slider {
+    writing-mode: vertical-lr;
+    appearance: none;
+    width: 15px;
+    height: 150px;
+    background: linear-gradient(to top,green,orange,red);
+    border-radius: 10px;
+    outline: none;
+}
+  
+.logout-button {
+    background: transparent;
+    border: 2px solid #1E1C59;
+    color: #D91E41;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+  

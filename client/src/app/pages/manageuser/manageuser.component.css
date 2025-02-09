@@ -1,0 +1,125 @@
+.manage-user-container {
+    display: flex;
+    flex-direction: row;
+    gap: 5vw;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.left-panel {
+    display: flex;
+    padding-left: 20px;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+}
+
+.user-management {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    background: #f8f8f8;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.sidebar {
+    background-color: #1E1C59;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Ajoute un espace entre les éléments */
+    width: 100%;
+}
+
+/* Ajuste la largeur des boutons */
+.group-item {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacement entre les éléments */
+    width: 100%;
+}
+
+.group-button {
+    flex-grow: 1;
+    background: white;
+    color: #1E1C59;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+    width: 100%; /* Permet au bouton de s'étendre */
+}
+
+.delete-group-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Formulaire d'ajout de formation */
+.add-group-form {
+    width: 100%;
+}
+
+.add-group-form h3 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.add-group-form form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.add-group-form input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #D9002D;
+}
+
+.add-group-form button {
+    width: 40px; /* Taille fixe pour le bouton */
+    height: 40px;
+    padding: 0;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border: 1px solid #D9002D;
+    background-color: white;
+    color: #D9002D;
+    cursor: pointer;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 300px;
+    text-align: center;
+}

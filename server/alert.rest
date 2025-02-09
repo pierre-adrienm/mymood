@@ -1,0 +1,17 @@
+### Afficher l'ensemble des alertes
+GET http://localhost:3000/alerts
+
+### Afficher les 10 dernier alertes
+GET http://localhost:3000/lastsAlerts
+
+### Afficher le dernier alerte
+GET http://localhost:3000/lastAlert
+
+### Afficher l'ensemble des alertes pour un utilisateur
+GET http://localhost:3000/alerts/user/8
+
+### Afficher les 10 derniers alertes d'un utilisateur
+GET http://localhost:3000/lastsAlerts/user/8
+
+### Aifcher le dernier alerte d'un utilisateur
+GET http://localhost:3000/lastAlert/user/8

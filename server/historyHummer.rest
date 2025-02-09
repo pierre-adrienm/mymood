@@ -1,0 +1,17 @@
+### Afficher l'ensemble des historique des hummer
+GET http://localhost:3000/historyHummer
+
+### Afficher les 10 dernier historiques des hummers
+GET http://localhost:3000/lastshistoryHummer
+
+### Afichier la date de la dernière mise à jour des hummeurs
+GET http://localhost:3000/lasthistoryHummer
+
+### Afficher l'historique d'hummeur pour un utilisateur
+GET http://localhost:3000/historyHummer/user/7
+
+### Afficher les 10 derniers mise à d'hummeur pour un utilisateur
+GET http://localhost:3000/lastshistoryHummer/user/7
+
+### Afficher la date de la dernière mise à jour de l'utilisateur
+GET http://localhost:3000/lasthistoryHummer/user/7

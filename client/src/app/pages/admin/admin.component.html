@@ -1,0 +1,18 @@
+<div class="admin-container">
+    <h1 class="title">Les formations</h1>
+    <div class="groups-container">
+        <div *ngFor="let group of groups">
+            <button 
+                class="group-button" 
+                (click)="redirectToProfileGroup(group.id_group)">
+                {{ group.name }}
+            </button>
+        </div>
+    </div>
+    <button 
+        class="manage-button" 
+        (click)="redirectToManageUser()">
+        Gérer les utilisateurs
+    </button>
+</div>
+  

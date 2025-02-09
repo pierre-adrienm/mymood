@@ -1,0 +1,18 @@
+<div class="supervisor-container">
+    <h2 class="title">Liste des Groupes</h2>
+  
+    <div class="groups-container">
+        <div *ngIf="groups.length === 0">Aucun groupe trouvé.</div>
+        <ul *ngIf="groups.length > 0">
+            <li *ngFor="let group of groups">
+                <button 
+                    class="group-button"
+                    [routerLink]="['/supervisor', idUser, 'formations', group.id_group]"
+                >
+                    {{ group.name }}  <!-- Affiche le nom de chaque groupe -->
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>
+  

@@ -1,0 +1,53 @@
+### Créer un utilisateur
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "name":"Pierre Martin",
+    "email":"p.m@laposte.net",
+    "password":"pass2025!",
+    "status":"student"
+}
+
+### Consult users
+GET http://localhost:3000/users
+
+### Consulter le nombre d'utilisateur
+GET http://localhost:3000/nbUser
+
+### Consult one user
+GET http://localhost:3000/user/1
+
+### Modifier un utilisateur
+PUT http://localhost:3000/profile/5
+Content-Type: application/json
+
+{
+    "email":"martin.dupont@gmail.com",
+    "password":":Ok_hand:"
+}
+
+### Modifier l'hummeur de l'utilisateur
+PUT http://localhost:3000/hummer/1
+Content-Type: application/json
+
+{
+    "hummer":100
+}
+
+### Afficher l'hummeur de l'utilisateur
+GET http://localhost:3000/hummer/9
+
+### Modifier l'état du call de l'utilisateur
+PUT http://localhost:3000/call/1
+Content-Type: application/json
+
+{
+    "call":false
+}
+
+### Afficher l'état d'appel de l'utilisateur
+GET http://localhost:3000/call/6
+
+### Supprimer un utilisateur
+DELETE http://localhost:3000/deleteUser/5

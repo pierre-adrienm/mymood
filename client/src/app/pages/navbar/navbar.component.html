@@ -1,0 +1,4 @@
+<nav class="navbar">
+    <button *ngIf="profilePage()" (click)="profile()">Mon Profil</button>
+    <button *ngIf="isNotLoginPage()" (click)="logout()">Déconnexion</button>
+</nav>

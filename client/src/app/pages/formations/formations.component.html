@@ -1,0 +1,32 @@
+<div class="formations-container">
+  <div class="header-container">
+    <h2 class="title">Formation: {{ GroupName }}</h2>
+    <div class="average-container">
+      <div class="average-label">Moyenne de la classe :</div>
+      <input type="range" min="1" max="100" [value]="averageHummer" disabled>
+      <div class="average-value">{{ averageHummer | number: '1.0-0' }}</div>
+    </div>
+  </div>
+
+  <div class="users-container">
+    <div *ngIf="usersInFormation.length === 0">Aucun utilisateur inscrit à cette formation.</div>
+    <div class="user-list" *ngIf="usersInFormation.length > 0">
+      <div *ngFor="let user of usersInFormation" 
+        class="user-card"
+        [style.backgroundColor]="getUserCardColor(user.call)"
+        (click)="goToUserDetail(user.id_user)" 
+      >
+        <p class="user-name">{{ user.name }}</p>
+        <div class="hummer-container">
+          <div class="hummer-circle" 
+              [style.backgroundColor]="getHummerColor(user.hummer)">
+            {{ user.hummer }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="back-button" (click)="goBack()">Retour</button>
+
+</div>

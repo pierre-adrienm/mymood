@@ -1,0 +1,96 @@
+/* Conteneur principal */
+.formations-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Header avec Titre + Moyenne sur une ligne */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Conteneur moyenne + curseur */
+.average-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Étiquette et valeur de la moyenne */
+.average-label, .average-value {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* Curseur désactivé */
+input[type="range"] {
+    width: 150px;
+    height: 10px;
+    border-radius: 5px;
+    appearance: none;
+    outline: none;
+    background: linear-gradient(to right, green, orange, red);
+    pointer-events: none;
+}
+
+/* Utilisateurs alignés en ligne */
+.user-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Cartes utilisateurs */
+.user-card {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    max-width: 300px;
+    justify-content: space-between;
+    flex: 1;
+}
+
+/* Cercle pour afficher l'humeur */
+.hummer-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Bouton de retour centré */
+.back-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #D91E41;
+    background-color: white;
+    border: 2px solid #1E1C59;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.back-button:hover {
+    background-color: #D91E41;
+    color: white;
+}

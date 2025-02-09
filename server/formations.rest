@@ -1,0 +1,25 @@
+### Ajout d'un utilisateur à un groupe
+POST http://localhost:3000/group/3/registerFormation
+Content-Type: application/json
+
+{
+    "name":"Jean Dupont"
+}
+
+### consultation la liste des utilisateur dans une formation
+GET http://localhost:3000/group/1/users
+
+### recupérer le nombre d'utilisateur dans une formation
+GET http://localhost:3000/group/1/nbUser
+
+### consultation las liste des formation pour un utilisateur
+GET http://localhost:3000/user/6/formations
+
+### Récuperer le nombre de formations qu'a un utilisateur
+GET http://localhost:3000/user/6/nbFormations
+
+### Afficher la moyenne des hummeur dans un groupe
+GET http://localhost:3000/group/2/avg_hummer
+
+### Supprimer un utilisateur d'un groupe
+DELETE http://localhost:3000/group/1/user/6

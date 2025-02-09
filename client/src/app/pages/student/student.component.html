@@ -1,0 +1,25 @@
+<div class="mood-container">
+    <p>Cet outil est conçu pour vous permettre de communiquer votre Mood.</p>
+    <p>
+        Grâce à ce Mood, nous savons si vous allez bien ou si vous avez besoin d’aide.
+        En cas de besoin, vous pouvez appuyer sur le bouton d’appel. 
+        Cela enverra une notification à votre formateur ainsi qu’à la médiation.
+    </p>
+    <p>En cas d’urgence, manifestez-vous auprès de la personne de l’équipe la plus proche.</p>
+  
+    <div class="hummer-card">
+
+        <button class="call-button" [routerLink]="['/confirmation', userId]">Appel</button>
+  
+        <div class="hummer-slider-container">
+            <p class="hummer-label">Je me sens mal</p>
+            <input type="range" min="1" max="100" [(ngModel)]="hummer" 
+                class="hummer-slider" (change)="updateHummer()" orient="vertical"
+            >
+            <p class="hummer-label">Tout est OK.</p>
+        </div>
+    </div>
+  
+    <button class="logout-button" (click)="logout()">Déconnexion</button>
+</div>
+  

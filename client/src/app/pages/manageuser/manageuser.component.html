@@ -1,0 +1,90 @@
+<div class="manage-user-container">
+    <!-- Colonne gauche : Titre + Sidebar -->
+    <div class="left-panel">
+        <h3 class="formation-title">Les formations</h3>
+        <div class="sidebar">
+            <div *ngFor="let group of groups" class="group-item">
+                <button class="group-button" (click)="redirectToProfileGroup(group.id_group)">
+                    {{ group.name }}
+                </button>
+                <button class="delete-group-btn" (click)="deleteGroup(group.id_group)">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+
+            <div class="add-group-form">
+                <h3>Ajout Formation</h3>
+                <form (submit)="addGroup()">
+                    <input type="text" [(ngModel)]="newGroupName" name="groupName" placeholder="Nom du groupe" required>
+                    <button type="submit">+</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Colonne droite : Gestion des utilisateurs -->
+    <div class="user-management">
+        <!-- Formulaire d'ajout utilisateur -->
+        <div class="add-user-form">
+            <h3>Ajouter un stagiaire</h3>
+            <form (submit)="addUser()">
+                <input type="text" [(ngModel)]="newUser.name" name="name" placeholder="Prénom" required>
+                <input type="email" [(ngModel)]="newUser.email" name="email" placeholder="Adresse e-mail" required>
+                <input type="password" [(ngModel)]="newUser.password" name="password" placeholder="Mot de passe" required>
+        
+                <select [(ngModel)]="newUser.status" name="status" required>
+                    <option value="" disabled selected>Choisir un statut</option>
+                    <option value="student">Étudiant</option>
+                    <option value="supervisor">Superviseur</option>
+                    <option value="admin">Admin</option>
+                </select>
+        
+                <button type="submit">+</button>
+            </form>
+        </div>
+
+        <!-- Liste des utilisateurs -->
+        <!-- <div class="user-list">
+            <h3>Les stagiaires</h3>
+            <ul>
+                <li *ngFor="let user of users">
+                    {{ user.name }} ({{ user.formation ? user.formation : 'Aucune formation' }})
+                    <button (click)="editUser(user)">✏</button>
+                    <button (click)="deleteUser(user.id)">🗑</button>
+                </li>
+            </ul>
+        </div> -->
+        <div class="user-list">
+            <h3>Les stagiaires</h3>
+            <ul>
+                <li *ngFor="let user of users">
+                    {{ user.name }} {{user.email}} ({{ user.status }})
+                    <button (click)="editUser(user)">✏</button>
+                    <button (click)="logUser(user); deleteUser(user.id_user)">🗑</button>
+                </li>
+            </ul>
+        </div>        
+    </div>
+</div>
+
+<div *ngIf="selectedUser" class="modal">
+    <div class="modal-content">
+        <h3>Modifier l'utilisateur</h3>
+        <form (submit)="updateUser()">
+            <input type="text" [(ngModel)]="selectedUser.name" name="name" placeholder="Nom" required>
+            <input type="email" [(ngModel)]="selectedUser.email" name="email" placeholder="Email" required>
+            <input type="password" [(ngModel)]="selectedUser.oldPassword" name="oldPassword" placeholder="Ancien mot de passe">
+            <input type="password" [(ngModel)]="selectedUser.password" name="password" placeholder="Nouveau mot de passe">
+
+            <select [(ngModel)]="selectedUser.status" name="status" required>
+                <option value="student">Étudiant</option>
+                <option value="supervisor">Superviseur</option>
+                <option value="admin">Admin</option>
+            </select>
+
+            <button type="submit">✅ Modifier</button>
+            <button type="button" (click)="selectedUser = null">❌ Annuler</button>
+        </form>
+    </div>
+</div>
+
