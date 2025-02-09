@@ -14,6 +14,7 @@ export class ManageuserComponent implements OnInit {
   userId: number | null = null;
   users: any[] = [];
   selectedUser: any = null;
+  formUser: any = {};
   groups: any[] = [];
   newUser = { name: '', email: '', password: '', status: '' };
   newGroupName = '';
@@ -74,20 +75,45 @@ export class ManageuserComponent implements OnInit {
     this.selectedUser = { ...user, oldPassword: '' }; // Stocke une copie pour modification
   }
 
-  updateUser() {
-    if (!this.selectedUser) return;
+  openModal(user: any) {
+    this.selectedUser = user;
+    this.formUser = { 
+      name: user.name || '',
+      email: user.email || '',
+      password: '',
+      confirmPassword: '',
+      status: user.status || ''
+    };
+  }
 
-    this.userService.updateUser(this.selectedUser,this.userId).subscribe({
-      next: () => {
-        alert('Utilisateur mis à jour avec succès');
-        this.getUsers(); // Rafraîchir la liste
-        this.selectedUser = null; // Fermer la fenêtre de modification
+  closeModal() {
+    this.selectedUser = null;
+    this.formUser = {}; // Réinitialisation des champs
+  }
+
+  updateUser() {
+    if (!this.selectedUser || !this.selectedUser.id_user) {
+      console.error("Aucun utilisateur sélectionné");
+      return;
+    }
+
+    const updatedUser = {
+      id_user: Number(this.selectedUser.id_user),
+      name: this.formUser.name,
+      email: this.formUser.email,
+      password: this.formUser.password || null,
+      status: this.formUser.status
+    };
+
+    this.userService.updateUser(updatedUser.id_user, updatedUser).subscribe(
+      (response) => {
+        console.log("Utilisateur mis à jour:", response);
+        this.closeModal();
       },
-      error: (err) => {
-        console.error("Erreur lors de la mise à jour", err);
-        alert('Erreur : ' + (err.error?.message || 'Impossible de mettre à jour l\'utilisateur.'));
+      (error) => {
+        console.error("Erreur lors de la mise à jour de l'utilisateur:", error);
       }
-    });
+    );
   }
 
   deleteUser(id: number) {

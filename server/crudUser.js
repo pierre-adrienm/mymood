@@ -45,7 +45,7 @@ crudUser.post("/register", async (req, res) => {
 crudUser.get("/users", async (req,res) => {
     try{
         const users = await pool.query(
-            `SELECT name,email,status,hummer,call FROM "User" ORDER by name`
+            `SELECT * FROM "User" ORDER by name`
         );
 
         // si absence d'utilisateur

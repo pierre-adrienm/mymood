@@ -43,27 +43,35 @@
             </form>
         </div>
 
-        <!-- Liste des utilisateurs -->
-        <!-- <div class="user-list">
-            <h3>Les stagiaires</h3>
-            <ul>
-                <li *ngFor="let user of users">
-                    {{ user.name }} ({{ user.formation ? user.formation : 'Aucune formation' }})
-                    <button (click)="editUser(user)">✏</button>
-                    <button (click)="deleteUser(user.id)">🗑</button>
-                </li>
-            </ul>
-        </div> -->
         <div class="user-list">
             <h3>Les stagiaires</h3>
-            <ul>
-                <li *ngFor="let user of users">
-                    {{ user.name }} {{user.email}} ({{ user.status }})
-                    <button (click)="editUser(user)">✏</button>
-                    <button (click)="logUser(user); deleteUser(user.id_user)">🗑</button>
-                </li>
-            </ul>
-        </div>        
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                        <th>Modifier</th>
+                        <th>Supprimer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users">
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.status }}</td>
+                        <td>
+                            <button class="delete-group-btn" (click)="editUser(user)">✏</button>
+                        </td>
+                        <td>
+                            <button class="delete-group-btn"(click)="logUser(user); deleteUser(user.id_user)">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>                
     </div>
 </div>
 
@@ -71,20 +79,33 @@
     <div class="modal-content">
         <h3>Modifier l'utilisateur</h3>
         <form (submit)="updateUser()">
-            <input type="text" [(ngModel)]="selectedUser.name" name="name" placeholder="Nom" required>
-            <input type="email" [(ngModel)]="selectedUser.email" name="email" placeholder="Email" required>
-            <input type="password" [(ngModel)]="selectedUser.oldPassword" name="oldPassword" placeholder="Ancien mot de passe">
-            <input type="password" [(ngModel)]="selectedUser.password" name="password" placeholder="Nouveau mot de passe">
+            <div class="form-group">
+                <input type="text" [(ngModel)]="formUser.name" name="name" placeholder="Nom" required>
+            </div>
+            <div class="form-group">
+                <input type="email" [(ngModel)]="formUser.email" name="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" [(ngModel)]="formUser.password" name="password" placeholder="Nouveau mot de passe">
+            </div>
+            <div class="form-group">
+                <input type="password" [(ngModel)]="formUser.confirmPassword" name="confirmPassword" placeholder="Confirmer mot de passe">
+            </div>
+            <div class="form-group">
+                <select [(ngModel)]="formUser.status" name="status" required>
+                    <option value="" disabled selected>Choisir un statut</option>
+                    <option value="student">Étudiant</option>
+                    <option value="supervisor">Superviseur</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
 
-            <select [(ngModel)]="selectedUser.status" name="status" required>
-                <option value="student">Étudiant</option>
-                <option value="supervisor">Superviseur</option>
-                <option value="admin">Admin</option>
-            </select>
-
-            <button type="submit">✅ Modifier</button>
-            <button type="button" (click)="selectedUser = null">❌ Annuler</button>
+            <div class="modal-buttons">
+                <button type="submit" class="btn-save">✅ Modifier</button>
+                <button type="button" class="btn-cancel" (click)="closeModal()">
+                    ❌ Annuler
+                </button>
+            </div>
         </form>
     </div>
 </div>
-

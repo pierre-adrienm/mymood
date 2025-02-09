@@ -40,6 +40,6 @@ export class UserService {
   }
 
   deleteGroup(id: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/groups/${id}`);
+    return this.http.delete(`${this.apiUrl}/deleteGroup/${id}`);
   }
 }

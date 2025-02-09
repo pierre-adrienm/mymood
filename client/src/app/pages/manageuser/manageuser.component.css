@@ -57,7 +57,8 @@
 .delete-group-btn {
     background: transparent;
     border: none;
-    color: white;
+    background-color: white;
+    color: #D91E41;
     cursor: pointer;
     padding: 5px;
 }
@@ -103,6 +104,34 @@
     cursor: pointer;
 }
 
+.user-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.user-list th, .user-list td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.user-list th {
+    background-color: #1E1C59;
+    color: white;
+}
+
+.user-list button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.user-list button:hover {
+    opacity: 0.7;
+}
+
 .modal {
     position: fixed;
     top: 0;
@@ -116,10 +145,58 @@
 }
 
 .modal-content {
-    background: white;
+    background: #1E1C59;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    width: 300px;
+    width: 350px;
     text-align: center;
+}
+
+.modal-content h3 {
+    color: white;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.btn-save {
+    background-color: white;
+    color: #4CAF50;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-cancel {
+    background-color: white;
+    color: #D9002D;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
