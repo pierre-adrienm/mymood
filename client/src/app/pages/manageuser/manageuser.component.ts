@@ -25,6 +25,10 @@ export class ManageuserComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    // Récupérer l'ID de l'utilisateur dès l'initialisation du composant
+    const storedUserId = localStorage.getItem('userId');
+    this.userId = storedUserId ? Number(storedUserId) : null;
+
     this.fetchUsers();
     this.fetchGroups();
     this.getUsers();
@@ -49,6 +53,7 @@ export class ManageuserComponent implements OnInit {
         console.log('Utilisateur ajouté avec succès', response);
         alert('Utilisateur ajouté avec succès');
         this.newUser = { name: '', email: '', password: '', status: '' }; // Réinitialise le formulaire
+        this.fetchUsers(); // Mettre à jours la liste
       },
       error: (error) => {
         console.error('Erreur lors de l\'ajout de l\'utilisateur', error);
@@ -136,7 +141,6 @@ export class ManageuserComponent implements OnInit {
       });
     }
   }
-  
 
   addGroup() {
     this.userService.addGroup(this.newGroupName).subscribe(() => {
@@ -150,14 +154,38 @@ export class ManageuserComponent implements OnInit {
   }
 
   redirectToProfileGroup(groupId: number): void {
+    // Récupérer userId depuis localStorage si non défini
+    if (this.userId === null) {
+      const storedUserId = localStorage.getItem('userId');
+      this.userId = storedUserId ? Number(storedUserId) : null;
+    }
+  
+    console.log('UserId:', this.userId);
+    console.log('GroupId:', groupId);
+  
     if (this.userId !== null) {
-      this.router.navigate([`/admin/${this.userId}/profilegroup/${groupId}`]);
+      const url = `/admin/${this.userId}/profilegroup/${groupId}`;
+      console.log('Redirection vers:', url);
+      this.router.navigate([url]);
     } else {
-      this.router.navigate(['/login']);
+      console.warn('UserId est null, redirection vers login.');
+      this.router.navigate(['/']);
     }
   }
 
   logUser(user: any) {
     console.log(user);
-  }  
+  }
+  
+  goToAdminPage(): void {
+    const storedUserId = localStorage.getItem('userId');
+    this.userId = storedUserId ? Number(storedUserId) : null;
+  
+    if (this.userId) {
+      this.router.navigate([`/admin/${this.userId}`]);
+    } else {
+      alert("Utilisateur non trouvé. Redirection vers la page de connexion.");
+      this.router.navigate(['/login']);
+    }
+  }
 }

@@ -42,6 +42,24 @@
     width: 100%;
 }
 
+.button-retour {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.custom-button {
+    background-color: white;
+    color: #D91E41;
+    border: 2px solid #D91E41;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
 .group-button {
     flex-grow: 1;
     background: white;
