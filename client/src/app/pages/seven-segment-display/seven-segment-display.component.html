@@ -1,0 +1,19 @@
+<div class="seven-segment-container">
+    <!-- Affichage des centaines -->
+    <div class="digit">
+        <div class="segment-centaines" *ngFor="let segment of getCentainesSegments(); let i = index"
+            [class.on]="segment === '1'"></div>
+    </div>
+
+    <!-- Affichage des dizaines -->
+    <div class="digit">
+        <div class="segment" *ngFor="let segment of getDizainesSegments(); let i = index"
+            [class.on]="segment === '1'"></div>
+    </div>
+
+    <!-- Affichage des unités -->
+    <div class="digit">
+        <div class="segment" *ngFor="let segment of getUnitesSegments(); let i = index"
+            [class.on]="segment === '1'"></div>
+    </div>
+</div>

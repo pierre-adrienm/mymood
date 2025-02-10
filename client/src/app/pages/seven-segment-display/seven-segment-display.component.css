@@ -1,0 +1,117 @@
+.seven-segment-container {
+    display: flex;
+    margin-top: 20px;
+    flex-direction: row;  /* Afficher les chiffres en ligne */
+    gap: 10px;  /* Espacement entre chaque chiffre */
+    background-color: rgb(58, 63, 129);
+    max-height: 100px;
+    max-width: 300px;
+    align-content: center;
+    align-items: center;
+}
+  
+.digit {
+    display: grid;
+    grid-template-columns: 10px 30px 10px;  /* Espaces à gauche et à droite */
+    grid-template-rows: 5px 20px 5px 20px 5px; /* Hauteur des segments */
+    gap: 0;
+    width: 50px;
+    height: 90px;
+    position: relative;
+}
+  
+.segment {
+    background-color: rgb(31, 29, 29); /* Par défaut noir */
+}
+  
+.segment.on {
+    background-color: turquoise; /* Segment allumé */
+}
+
+.segment.off {
+    background-color: rgb(31, 29, 29); /* Segment éteint, noir */
+}
+  
+/* Barre horizontale du haut */
+.segment:nth-child(1) { 
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    width: 30px;
+    height: 5px;
+}
+  
+/* Barre verticale en haut à gauche */
+.segment:nth-child(2) { 
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    width: 5px;
+    height: 20px;
+}
+  
+/* Barre verticale en haut à droite */
+.segment:nth-child(3) { 
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    width: 5px;
+    height: 20px;
+}
+  
+/* Barre centrale */
+.segment:nth-child(4) { 
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+    width: 30px;
+    height: 5px;
+}
+  
+/* Barre verticale en bas à gauche */
+.segment:nth-child(5) { 
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+    width: 5px;
+    height: 20px;
+}
+  
+/* Barre verticale en bas à droite */
+.segment:nth-child(6) { 
+    grid-column: 3 / 4;
+    grid-row: 4 / 5;
+    width: 5px;
+    height: 20px;
+}
+  
+/* Barre horizontale du bas */
+.segment:nth-child(7) { 
+    grid-column: 2 / 3;
+    grid-row: 5 / 6;
+    width: 30px;
+    height: 5px;
+}
+
+.segment-centaines {
+    background-color: rgb(31, 29, 29); /* Par défaut noir */
+}
+  
+.segment-centaines.on {
+    background-color: turquoise; /* Segment allumé */
+}
+
+.segment-centaines.off {
+    background-color: rgb(31, 29, 29); /* Segment éteint, noir */
+}
+
+/* Barre verticale en haut à droite */
+.segment-centaines:nth-child(1) { 
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    width: 5px;
+    height: 20px;
+}
+
+/* Barre verticale en bas à droite */
+.segment-centaines:nth-child(2) { 
+    grid-column: 3 / 4;
+    grid-row: 4 / 5;
+    width: 5px;
+    height: 20px;
+}

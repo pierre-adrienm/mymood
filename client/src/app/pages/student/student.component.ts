@@ -3,12 +3,15 @@ import { StudentService } from '../../services/student.service';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { LoginService } from '../../services/login.service';
+import { SevenSegmentDisplayComponent } from '../seven-segment-display/seven-segment-display.component';
 
 @Component({
   selector: 'app-student',
+  standalone: true,
   imports: [
     FormsModule,
-    RouterModule
+    RouterModule,
+    SevenSegmentDisplayComponent
   ],
   templateUrl: './student.component.html',
   styleUrl: './student.component.css'
