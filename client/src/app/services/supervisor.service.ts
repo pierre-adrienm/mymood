@@ -39,7 +39,7 @@ export class SupervisorService {
   }
 
   getHummersHistory(userId: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/historyHummer/user/${userId}`);
+    return this.http.get<any[]>(`${this.apiUrl}/lastshistoryHummer/user/${userId}`);
   }  
 
   getLastCall(userId: number): Observable<any> {

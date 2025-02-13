@@ -41,6 +41,22 @@ export class UsergroupComponent implements OnInit {
       }
     });
   }
+
+  convertToCET(dateString: string): string {
+    if (!dateString) return 'Non disponible';
+  
+    const dateUTC = new Date(dateString); 
+    dateUTC.setHours(dateUTC.getHours() + 1); // Ajoute une heure
+  
+    const options: Intl.DateTimeFormatOptions = {
+      timeZone: 'Europe/Paris',
+      year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', second: '2-digit',
+      hour12: false
+    };
+  
+    return new Intl.DateTimeFormat('fr-FR', options).format(dateUTC);
+  }  
   
   loadUserData() {
     if (this.userId !== null) {
