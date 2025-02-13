@@ -67,6 +67,7 @@
         {{ hummer.Hummer }}
       </td>
     </tr>
+    <ng-template #noDate>Non disponible</ng-template>
   </table>
 
   <h3>Historique des 10 derniers appels</h3>
@@ -77,6 +78,7 @@
     <tr *ngFor="let call of last10Calls">
       <td>{{ convertToCET(call.Date_alerte) }}</td>
     </tr>
+    <ng-template #noDate>Non disponible</ng-template>
   </table>
 
   <button class="return" (click)="goBack()">Retour</button>
