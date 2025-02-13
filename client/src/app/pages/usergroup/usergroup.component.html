@@ -52,34 +52,42 @@
   
 
   <h3>Historique des 10 derniers humeurs</h3>
-  <table>
-    <tr>
-      <th>Date</th>
-      <th>Humeur</th>
-    </tr>
-    <tr *ngFor="let hummer of last10Hummers">
-      <td>{{ convertToCET(hummer.Date_Hummer) }}</td>
-      <td [ngClass]="{
-        'red-hummer': hummer.Hummer >= 1 && hummer.Hummer <= 34,
-        'orange-hummer': hummer.Hummer >= 35 && hummer.Hummer <= 67,
-        'green-hummer': hummer.Hummer >= 68 && hummer.Hummer <= 100
-      }">
-        {{ hummer.Hummer }}
-      </td>
-    </tr>
-    <ng-template #noDate>Non disponible</ng-template>
-  </table>
+  <div *ngIf="last10Hummers.length > 0; else noHummerHistory">
+    <table>
+      <tr>
+        <th>Date</th>
+        <th>Humeur</th>
+      </tr>
+      <tr *ngFor="let hummer of last10Hummers">
+        <td>{{ convertToCET(hummer.Date_Hummer) }}</td>
+        <td [ngClass]="{
+          'red-hummer': hummer.Hummer >= 1 && hummer.Hummer <= 34,
+          'orange-hummer': hummer.Hummer >= 35 && hummer.Hummer <= 67,
+          'green-hummer': hummer.Hummer >= 68 && hummer.Hummer <= 100
+        }">
+          {{ hummer.Hummer }}
+        </td>
+      </tr>
+    </table>
+  </div>
+  <ng-template #noHummerHistory>
+    <p>Aucun historique d'humeur disponible.</p>
+  </ng-template>
 
   <h3>Historique des 10 derniers appels</h3>
-  <table>
-    <tr>
-      <th>Date</th>
-    </tr>
-    <tr *ngFor="let call of last10Calls">
-      <td>{{ convertToCET(call.Date_alerte) }}</td>
-    </tr>
-    <ng-template #noDate>Non disponible</ng-template>
-  </table>
+  <div *ngIf="last10Calls.length > 0; else noCallHistory">
+    <table>
+      <tr>
+        <th>Date</th>
+      </tr>
+      <tr *ngFor="let call of last10Calls">
+        <td>{{ convertToCET(call.Date_alerte) }}</td>
+      </tr>
+    </table>    
+  </div>
+  <ng-template #noCallHistory>
+    <p>Aucun historique d'appel disponible.</p>
+  </ng-template>
 
   <button class="return" (click)="goBack()">Retour</button>
 </div>
