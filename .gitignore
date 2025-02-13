@@ -43,3 +43,4 @@ Thumbs.db
 /client/node_modules
 /client/.angular
 /server/node_modules
+/.vscode
